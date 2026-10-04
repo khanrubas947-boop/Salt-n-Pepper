@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Salt'n Pepper</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            width: 100%;
+            padding: 15px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #222;
+            background: #000;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: white;
+        }
+
+        .text-logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            white-space: nowrap;
+        }
+
+        .text-logo span {
+            color: #e40000;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #e40000;
+        }
+
+        .btn {
+            padding: 13px 20px;
+            border-radius: 30px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+        }
+
+        .order-btn {
+            background: #e40000;
+            border: none;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            width: 100%;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .intro h1 {
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .intro h1 span {
+            font-weight: bold;
+        }
+
+        .intro p {
+            color: #aaa;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        /* ================= RESTAURANTS ================= */
+
+        .restaurants {
+            padding: 40px 7% 80px;
+        }
+
+        .restaurant {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .restaurant:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .restaurant-text {
+            width: 45%;
+        }
+
+        .restaurant-text small {
+            color: #e40000;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .restaurant-text h2 {
+            font-size: 40px;
+            margin: 15px 0;
+        }
+
+        .restaurant-text h2 span {
+            font-weight: normal;
+        }
+
+        .restaurant-text p {
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .location-btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border: 1px solid #555;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .location-btn:hover {
+            background: #e40000;
+            border-color: #e40000;
+        }
+
+        .restaurant-image {
+            width: 50%;
+        }
+
+        .restaurant-image img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ================= CARDS ================= */
+
+        .franchises {
+            background: #111;
+            padding: 80px 7%;
+            text-align: center;
+        }
+
+        .franchises h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: #000;
+            padding-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card small {
+            display: block;
+            color: #e40000;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        .card h3 {
+            font-size: 25px;
+            margin: 10px;
+        }
+
+        .card p {
+            color: #999;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 60px 7% 30px;
+            background: #050505;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .text-logo {
+            font-size: 25px;
+        }
+
+        footer h3 {
+            margin-bottom: 20px;
+        }
+
+        footer p,
+        footer a {
+            color: #999;
+            line-height: 2;
+            text-decoration: none;
+            display: block;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #222;
+            margin-top: 50px;
+            padding-top: 25px;
+            color: #666;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero img {
+                height: 350px;
+            }
+
+            .restaurant,
+            .restaurant:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .restaurant-text,
+            .restaurant-image {
+                width: 100%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .intro h1 {
+                font-size: 30px;
+            }
+
+            .restaurant-text h2 {
+                font-size: 30px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero img {
+                height: 250px;
+            }
+
+            .text-logo {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+
+        <a href="#" class="logo">
+            <div class="text-logo">
+                Salt'n <span>Pepper</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Publications</a>
+            <a href="#">Get a Franchise</a>
+            <a href="#">Feedback</a>
+
+            <a href="#" class="btn order-btn">
+                Order Online
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <img
+            src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=85"
+            alt="Restaurant food"
+        >
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="intro">
+
+        <h1>
+            Welcome to <span>Salt'n Pepper</span>
+        </h1>
+
+        <p>
+            Restaurants are an important part of a city's food culture.
+            Enjoy delicious food, great service and a memorable dining
+            experience at Salt'n Pepper.
+        </p>
+
+    </section>
+
+
+    <!-- ================= RESTAURANTS ================= -->
+
+    <section class="restaurants">
+
+
+        <!-- ISLAMABAD -->
+
+        <div class="restaurant">
+
+            <div class="restaurant-text">
+
+                <small>ISLAMABAD</small>
+
+                <h2>
+                    Salt'n Pepper
+                    <span>Restaurant</span>
+                </h2>
+
+                <p>
+                    Experience the taste of our famous Pakistani,
+                    Chinese and Continental dishes prepared with
+                    quality ingredients.
+                </p>
+
+                <a href="#" class="location-btn">
+                    Get Directions
+                </a>
+
+            </div>
+
+
+            <div class="restaurant-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=85"
+                    alt="Islamabad Restaurant"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- FAISALABAD -->
+
+        <div class="restaurant">
+
+            <div class="restaurant-text">
+
+                <small>FAISALABAD</small>
+
+                <h2>
+                    Salt'n Pepper
+                    <span>Restaurant</span>
+                </h2>
+
+                <p>
+                    Enjoy our delicious menu and comfortable
+                    restaurant environment with family and friends.
+                </p>
+
+                <a href="#" class="location-btn">
+                    Get Directions
+                </a>
+
+            </div>
+
+
+            <div class="restaurant-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85"
+                    alt="Faisalabad Restaurant"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- BAHAWALPUR -->
+
+        <div class="restaurant">
+
+            <div class="restaurant-text">
+
+                <small>BAHAWALPUR</small>
+
+                <h2>
+                    Salt'n Pepper
+                    <span>Restaurant</span>
+                </h2>
+
+                <p>
+                    A place where great food and great atmosphere
+                    come together.
+                </p>
+
+                <a href="#" class="location-btn">
+                    Get Directions
+                </a>
+
+            </div>
+
+
+            <div class="restaurant-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=85"
+                    alt="Bahawalpur Restaurant"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EXPRESS FRANCHISES ================= -->
+
+    <section class="franchises">
+
+        <h2>
+            Salt'n Pepper
+            <br>
+            Express Franchises
+        </h2>
+
+
+        <div class="cards">
+
+
+            <!-- CARD 1 -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85"
+                    alt="Burger"
+                >
+
+                <small>LAHORE</small>
+
+                <h3>
+                    Salt'n Pepper Express
+                </h3>
+
+                <p>
+                    Delicious fast food and quality service.
+                </p>
+
+            </div>
+
+
+            <!-- CARD 2 -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=900&q=85"
+                    alt="Pizza"
+                >
+
+                <small>GUJRANWALA</small>
+
+                <h3>
+                    Salt'n Pepper Express
+                </h3>
+
+                <p>
+                    Fresh food prepared for you every day.
+                </p>
+
+            </div>
+
+
+            <!-- CARD 3 -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=85"
+                    alt="Restaurant"
+                >
+
+                <small>SARGODHA</small>
+
+                <h3>
+                    Salt'n Pepper Express
+                </h3>
+
+                <p>
+                    Enjoy your favorite meals with friends and family.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <!-- ABOUT -->
+
+            <div class="footer-logo">
+
+                <div class="text-logo">
+                    Salt'n <span>Pepper</span>
+                </div>
+
+                <p>
+                    The Salt'n Pepper restaurant chain has become
+                    an icon of the Pakistani food industry.
+                </p>
+
+            </div>
+
+
+            <!-- COMPANY -->
+
+            <div>
+
+                <h3>Company</h3>
+
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Publications</a>
+                <a href="#">Get a Franchise</a>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div>
+
+                <h3>Contact</h3>
+
+                <p>
+                    +92 111 100 678
+                </p>
+
+                <p>
+                    info@saltnpepper.com.pk
+                </p>
+
+            </div>
+
+
+            <!-- SOCIAL -->
+
+            <div>
+
+                <h3>Follow Us</h3>
+
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 Salt'n Pepper. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
